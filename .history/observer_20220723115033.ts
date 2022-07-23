@@ -58,10 +58,12 @@ class PersonHealthState{
         this.weight=0
         this.height=0
     }
-    public static withValues(weight:number,height:number):PersonHealthState{
-        const instance=new PersonHealthState()
-        instance.height=height
-        instance.weight=weight
+    public static  withValues(weight:number,height:number):PersonHealthState{
+        const instance=new PersonHealthState(
+
+            )
+            instance.height=height
+            instance.weight=weight
         return instance
     }
 }
@@ -81,4 +83,6 @@ const healthObserver=new HealthObserver(
     (newHealth)=>console.log(`peso: ${newHealth.weight}, altura: ${newHealth.height}`)
 )
 healthSubject.addObserver(healthObserver)
-healthSubject.setState(PersonHealthState.withValues(healthSubject.state.weight, 10))
+healthSubject.setState(
+     PersonHealthState.withValues(healthSubject.state.weight, 10)
+)

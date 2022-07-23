@@ -81,7 +81,7 @@ class TouristicPackageBlackFridayDecorator extends TouristicPackageDecorator {
         return super.perks() + " at 20% discount";
     }
 }
-const usedPackage = new TouristicPackageBlackFridayDecorator(new TouristicPackageFlightDecorator(new TouristicPackageHotelDecorator(new TouristicPackageBoatDecorator(new SimpleTouristicPackage()))));
+const usedPackage = new TouristicPackageBlackFridayDecorator(new TouristicPackageFlightDecorator(new TouristicPackageHotelDecorator(new SimpleTouristicPackage())));
 console.log(usedPackage.price());
 console.log(usedPackage.perks());
 console.log(usedPackage.detailedPrices);

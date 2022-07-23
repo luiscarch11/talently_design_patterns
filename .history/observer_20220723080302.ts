@@ -1,0 +1,51 @@
+
+class Subject<T>{
+     observers:Array<Observer<T>>
+     state:T
+     constructor(state:T){
+        this.state=state
+            this.observers=[]
+     }
+    addObserver(observer:Observer<T>):void{
+        this.observers.push(observer)
+    }
+    removeObserver(observer:Observer<T>):void{
+        this.observers=this.observers.filter(obs=>obs!=observer)
+    }
+    setState(state:T):void{
+        this.state=state
+        this.notifyObservers()
+    }
+    notifyObservers():void{
+        this.observers.forEach(obs=>obs.update(this.state))
+    }
+}
+interface Observer<T>{
+    update(val:T):void
+}
+
+class NumberObserver implements Observer<number>{
+    update(val: number): void {
+        console.log(`newNumber: ${val}`)
+    }
+}
+class StringObserver implements Observer<string>{
+    update(val: string): void {
+        console.log(`new string: ${val}`)
+    }
+}
+class Main{
+    static main (){
+        
+const observer2=new StringObserver()
+const subject=new Subject<string>('ningun valor')
+subject.addObserver(observer2)
+subject.notifyObservers()
+subject.setState('nuevo valor1')
+subject.setState('nuevo valor2')
+subject.setState('nuevo valor3');
+()=>{await new Promise(f => setTimeout(f, 1000));}
+    }
+}
+
+

@@ -81,4 +81,6 @@ const healthObserver=new HealthObserver(
     (newHealth)=>console.log(`peso: ${newHealth.weight}, altura: ${newHealth.height}`)
 )
 healthSubject.addObserver(healthObserver)
-healthSubject.setState(PersonHealthState.withValues(healthSubject.state.weight, 10))
+healthSubject.setState(
+     PersonHealthState.withValues(healthSubject.state.weight, 10)
+)
