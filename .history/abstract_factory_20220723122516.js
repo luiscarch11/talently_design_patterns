@@ -50,4 +50,3 @@ class Platform {
 const factory = Platform.getOS() == OS.Windows ? new WindowsUIComponentsFactory() : new MacOSUIComponentsFactory();
 factory.createButton().render();
 factory.createTextField().render();
-export{}
